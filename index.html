@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Captain's Log | Julie Mae</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Scrollbar styling for the about modal scroll content */
+    #modal-body > div.scroll-content::-webkit-scrollbar {
+      width: 8px;
+    }
+    #modal-body > div.scroll-content::-webkit-scrollbar-track {
+      background: #222;
+      border-radius: 4px;
+    }
+    #modal-body > div.scroll-content::-webkit-scrollbar-thumb {
+      background: #00ffff;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+
+  <canvas id="starfield"></canvas>
+  <canvas id="clouds"></canvas>
+
+  <div class="sun"></div>
+  <div class="moon"></div>
+
+  <div class="theme-toggle">
+    <button id="dark-mode" title="Dark Mode">🌙</button>
+    <button id="light-mode" title="Light Mode">☀️</button>
+  </div>
+
+  <header>
+  <h1><span class="log-title">Hi! I'm JM</span></h1>
+
+  </header>
+
+  <main class="main-box">
+    <h2>Welcome to my website.</h2>
+    <p>Explore my profile, missions, and transmission channels below.</p>
+    <div id="galactic-clock"></div>
+
+    <nav class="nav-buttons">
+      <button onclick="openModal('about')">About</button>
+      <button onclick="openModal('projects')">Projects</button>
+      <button onclick="openModal('links')">Links</button>
+      <button onclick="openModal('work')">Work</button>
+      <button onclick="openModal('faq')">FAQ</button>
+      <button onclick="openModal('contact')">Contact</button>
+    </nav>
+  </main>
+
+  <div id="modal">
+    <div id="modal-content">
+
+      <style>
+        #modal-content {
+          max-width: 800px;
+          width: 90%;
+          background: #000;
+          border: 1px solid #00ffff;
+          border-radius: 12px;
+          padding: 30px;
+          margin: 50px auto;
+          box-shadow: 0 0 20px #00ffff;
+        }
+      </style>
+      
+
+      <button class="close-btn" onclick="closeModal()">✖</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ✅ UPDATED ABOUT TEMPLATE -->
+  <template id="about">
+    <h3>About Me</h3>
+    
+    <!-- Profile image + name with added spacing -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 30px;">
+      <img src="c:\Users\Acer\OneDrive\画像\Saved Pictures\jul.jpg" alt="Julie Mae" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00ffff;" />
+      <h4 style="margin: 0; font-size: 1.7rem; font-weight: 700;">Hi! I'm Julie Mae</h4>
+    </div>
+
+    <!-- Scrollable About Content with styled scrollbar -->
+    <div class="scroll-content" style="max-height: 280px; overflow-y: auto; padding-right: 14px; text-align: left; font-size: 1rem; line-height: 1.5;">
+
+
+
+      <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 10px;">👋 Introduction</h4>
+      <p style="margin-bottom: 16px;">
+        I’m Julie Mae Cardeño, currently a third-year BSIT student passionate about technology and space exploration.
+      </p>
+      <p style="margin-bottom: 24px;">
+        I specialize in building futuristic digital systems, blending creativity and logic to craft immersive user experiences. Outside of coding, I enjoy stargazing, astronomy, and tech innovation.
+      </p>
+
+      <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 10px;">🎓 Education</h4>
+      <p style="margin-bottom: 24px;">Bachelor of Science in Information Technology</p>
+
+      <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 10px;">💫 Other Interests</h4>
+      <ul style="margin-bottom: 24px; padding-left: 20px;">
+        <li>Stargazing & Astronomy</li>
+        <li>Creative Design</li>
+        <li>Learning emerging tech trends</li>
+        <li>Building personal projects</li>
+      </ul>
+
+      <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 10px;">🗣️ Languages</h4>
+      <ul style="padding-left: 20px;">
+        <li>English (Fluent)</li>
+        <li>Tagalog (Native)</li>
+        <li>Learning Japanese 🇯🇵</li>
+      </ul>
+    </div>
+  </template>
+
+  <template id="projects">
+    <h3>Mission Logs</h3>
+    <ul>
+      <li>🚀 <strong>Weather App:</strong> Real-time weather updates using the OpenWeatherMap API with a sleek UI.</li>
+      <li>🌌 <strong>Space Quiz:</strong> Interactive quiz game testing knowledge about stars, planets, and galaxies.</li>
+      <li>🛰️ <strong>Satellite Tracker:</strong> A personal project visualizing satellite paths using live data feeds (in progress).</li>
+    </ul>
+    <p>More projects will be uploaded as the journey continues...</p>
+  </template>
+
+  <!-- UPDATED LINKS TEMPLATE WITH LOGOS -->
+  <template id="links">
+    <h3>Links</h3>
+    <p>Explore my digital outposts and professional profiles below. Feel free to connect, follow, or check out my work!</p>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub" style="width:20px; height:20px; filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(165deg) brightness(105%) contrast(105%);" />
+        <a href="https://github.com/juls" target="_blank" rel="noopener noreferrer" style="color: #00ffff; text-decoration: none; font-weight: 600;">
+          GitHub Profile
+        </a>  
+        <br />
+        <small style="margin-left: 28px;">Browse my repositories, contributions, and open-source projects.</small>
+      </li>
+      <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn" style="width:20px; height:20px; filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(165deg) brightness(105%) contrast(105%);" />
+        <a href="https://www.linkedin.com/in/julie-mae-cardeño" target="_blank" rel="noopener noreferrer" style="color: #00ffff; text-decoration: none; font-weight: 600;">
+          LinkedIn Profile
+        </a>
+        <br />
+        <small style="margin-left: 28px;">Connect with me professionally and view my career milestones.</small>
+      </li>
+      <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/googlechrome.svg" alt="Portfolio" style="width:20px; height:20px; filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(165deg) brightness(105%) contrast(105%);" />
+        <a href="https://julie-mae-portfolio.example.com" target="_blank" rel="noopener noreferrer" style="color: #00ffff; text-decoration: none; font-weight: 600;">
+          Portfolio Website
+        </a>
+        <br />
+        <small style="margin-left: 28px;">Check out my latest web projects, UI/UX designs, and creative experiments.</small>
+      </li>
+      <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/twitter.svg" alt="Twitter" style="width:20px; height:20px; filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(165deg) brightness(105%) contrast(105%);" />
+        <a href="https://twitter.com/juls_tech" target="_blank" rel="noopener noreferrer" style="color: #00ffff; text-decoration: none; font-weight: 600;">
+          Twitter
+        </a>
+        <br />
+        <small style="margin-left: 28px;">Follow me for tech updates, space news, and daily inspiration.</small>
+      </li>
+      <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/instagram.svg" alt="Instagram" style="width:20px; height:20px; filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(165deg) brightness(105%) contrast(105%);" />
+        <a href="https://www.instagram.com/juls_creative" target="_blank" rel="noopener noreferrer" style="color: #00ffff; text-decoration: none; font-weight: 600;">
+          Instagram
+        </a>
+        <br />
+        <small style="margin-left: 28px;">Discover my creative visuals, design snippets, and photography.</small>
+      </li>
+    </ul>
+    <p style="font-style: italic; color: #888; margin-top: 20px;">
+      More social channels and links coming soon... Stay tuned for updates from the cosmos!
+    </p>
+  </template>
+
+  <template id="work">
+    <h3 style="border-bottom: 2px solid #00ffff; padding-bottom: 8px; margin-bottom: 16px;">Work Experience</h3>
+  
+    <!-- Scrollable container -->
+    <div class="scroll-content" style="max-height: 320px; overflow-y: auto; padding-right: 24px; padding-left: 10px; text-align: left;">
+
+  
+
+
+      <p style="font-size: 1.1rem; margin-bottom: 12px;">
+        Currently interning at <strong>TechGalactic Solutions</strong>, a startup specializing in innovative UI/UX for space-related applications and futuristic digital systems.
+      </p>
+  
+      <div style="background: #111; border: 1px solid #00ffff; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 0 10px #00ffff;">
+        <h4 style="color: #00ffff; margin-bottom: 10px;">Role Highlights 🚀</h4>
+        <ul style="list-style-type: disc; padding-left: 20px; color: #ccc; font-size: 1rem; line-height: 1.5;">
+          <li>Developing user-friendly interfaces using <strong>React.js</strong>, <strong>JavaScript</strong>, and <strong>vanilla JS</strong>.</li>
+          <li>Collaborating closely with the design team to implement <em>futuristic, space-themed UI/UX</em> that enhances user immersion.</li>
+          <li>Conducting performance optimization for smooth operation on both desktop and mobile devices.</li>
+          <li>Integrating APIs for real-time data visualization, including satellite tracking and cosmic weather updates.</li>
+          <li>Writing clean, maintainable code and documentation to support rapid development cycles.</li>
+          <li>Leading code reviews and mentoring junior developers to foster team growth.</li>
+        </ul>
+      </div>
+  
+      <div style="background: #111; border: 1px solid #00ffff; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 0 10px #00ffff;">
+        <h4 style="color: #00ffff; margin-bottom: 10px;">Additional Experience & Skills 💼</h4>
+        <ul style="list-style-type: square; padding-left: 20px; color: #ccc; font-size: 1rem; line-height: 1.5;">
+          <li>Prototyping UI concepts with <strong>Figma</strong> and <strong>Adobe XD</strong>.</li>
+          <li>Implementing responsive design principles for seamless multi-device access.</li>
+          <li>Basic knowledge of backend integration with <strong>Node.js</strong> and <strong>Express</strong>.</li>
+          <li>Version control and collaboration using <strong>Git</strong> and <strong>GitHub</strong>.</li>
+          <li>Familiarity with Agile and Scrum methodologies for project management.</li>
+          <li>Passion for exploring emerging technologies like <strong>WebGL</strong> and <strong>Three.js</strong> for 3D space visualizations.</li>
+        </ul>
+      </div>
+  
+      <p style="font-style: italic; color: #00ffff; text-align: center; margin-top: 30px; font-weight: 600;">
+        Eager to expand my horizons and contribute to cutting-edge projects that push the boundaries of technology and space exploration.
+      </p>
+  
+    </div>
+  </template>
+  
+
+  <template id="faq">
+    <h3 style="border-bottom: 2px solid #00ffff; padding-bottom: 10px; margin-bottom: 20px;">🛸 Frequently Asked Questions</h3>
+  
+    <div class="faq-item">
+      <button class="faq-question">
+        Can I collaborate with you?
+        <span class="arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        Absolutely! I’m always open to exciting projects and partnerships. Reach out via the Contact tab.
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <button class="faq-question">
+        What technologies do you work with?
+        <span class="arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        Primarily JavaScript, React, HTML5, CSS3, REST APIs, and Git. I'm exploring WebGL and Three.js too!
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <button class="faq-question">
+        How can I follow your updates?
+        <span class="arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        Follow me on GitHub, LinkedIn, and Twitter (see the Links tab above). I share project updates regularly.
+      </div>
+    </div>
+  </template>
+  
+
+  <template id="contact">
+    <h3>Signal Transmission</h3>
+    <p>📧 Email me at: <a href="mailto:juliemaecardeño@gmail.com">juliemaecardeño@gmail.com</a></p>
+    <p>🌍 GitHub: <a href="https://github.com/juls" target="_blank" rel="noopener noreferrer">github.com/juls</a></p>
+    <p>📱 Socials coming soon...</p>
+  </template>
+
+  <script src="main.js"></script>
+</body>
+</html>

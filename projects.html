@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Mission Logs</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <header>
+    <h1>Mission Logs</h1>
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Me</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <div class="project-card">
+
+      
+      <h3>🚀 Weather App</h3>
+      <p>Live weather info using OpenWeatherMap API</p>
+    </div>
+    <div class="project-card">
+      <h3>🌌 Space Quiz</h3>
+      <p>A fun quiz testing your knowledge of the cosmos.</p>
+    </div>
+    <div class="project-card">
+      <h3>🛰️ Mission Planner</h3>
+      <p>AI-assisted mission route planner for space exploration.</p>
+    </div>
+  </main>
+
+  <!-- Transition popup overlay -->
+  <div class="page-transition" id="page-transition">
+    <div class="transition-box">
+      <p id="transition-text">Launching...</p>
+      <button id="cancel-nav">✖</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

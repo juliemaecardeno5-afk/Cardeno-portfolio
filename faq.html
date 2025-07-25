@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ | Mission Control</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <header>
+    <h1>Frequently Asked Questions</h1>
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Me</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h2>FAQ - Mission Control</h2>
+    <div class="faq-item">
+      <h3>How can I contact Julie Mae?</h3>
+      <p>You can reach her via email on the Contact page or through GitHub.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What technologies do you use?</h3>
+      <p>I primarily work with JavaScript, HTML, CSS, and APIs related to space data.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I contribute to your projects?</h3>
+      <p>Yes! Check out my GitHub and feel free to open issues or pull requests.</p>
+    </div>
+  </main>
+
+  <!-- Transition popup overlay -->
+  <div class="page-transition" id="page-transition">
+    <div class="transition-box">
+      <p id="transition-text">Launching...</p>
+      <button id="cancel-nav">✖</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
